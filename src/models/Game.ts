@@ -3,7 +3,7 @@ import { Scoreboard } from './Scoreboard';
 import { Tile } from './Tile';
 
 export class Game {
-    private board: Board;
+    public board: Board;
     private score: Scoreboard;
     private size: number;
 
@@ -133,16 +133,17 @@ export class Game {
     }
 
     private compactRow(row: Tile[]): Tile[] {
-        for (let i = 0; i < row.length - 1; i++) {
-            if (row[i].getValue() === row[i + 1].getValue() && row[i].getValue() !== null) {
-                let newValue = row[i].getValue()! * 2;
-                row[i].setValue(newValue);
-                row[i + 1].setValue(null);
+        let compactedRow = row.filter(tile => tile.getValue() !== null);
+        for (let i = 0; i < compactedRow.length - 1; i++) {
+            if (compactedRow[i].getValue() === compactedRow[i + 1].getValue()) {
+                let newValue = compactedRow[i].getValue()! * 2;
+                compactedRow[i].setValue(newValue);
+                compactedRow[i + 1].setValue(null);
+                compactedRow = row.filter(tile => tile.getValue() !== null);
                 this.score.addScore(newValue);
             }
         }
 
-        let compactedRow = row.filter(tile => tile.getValue() !== null);
         while (compactedRow.length < row.length) {
             compactedRow.push(new Tile());
         }
