@@ -16,7 +16,7 @@ export class Game {
     }
 
     addRandomTile(): void {
-        let emptyTiles = this.getEmptyTiles();
+        const emptyTiles = this.getEmptyTiles();
 
         if (emptyTiles.length > 0) {
             const randomTile = emptyTiles[Math.floor(Math.random() * emptyTiles.length)];
@@ -75,14 +75,14 @@ export class Game {
     }
 
     move(direction: 'up' | 'down' | 'left' | 'right'): boolean {
-        let tiles = this.board.getTiles();
+        const tiles = this.board.getTiles();
         let moved = false;
-        let processedTiles = this.prepareTilesForMovement(tiles, direction);
+        const processedTiles = this.prepareTilesForMovement(tiles, direction);
 
         for (let i = 0; i < processedTiles.length; i++) {
-            let originalRow = processedTiles[i];
-            let newRow = this.compactRow([...originalRow]);
-            let unchanged = this.isRowUnchanged(originalRow, newRow);
+            const originalRow = processedTiles[i];
+            const newRow = this.compactRow([...originalRow]);
+            const unchanged = this.isRowUnchanged(originalRow, newRow);
 
             if (!unchanged) {
                 moved = true;
@@ -136,7 +136,7 @@ export class Game {
         let compactedRow = row.filter(tile => tile.getValue() !== null);
         for (let i = 0; i < compactedRow.length - 1; i++) {
             if (compactedRow[i].getValue() === compactedRow[i + 1].getValue()) {
-                let newValue = compactedRow[i].getValue()! * 2;
+                const newValue = compactedRow[i].getValue()! * 2;
                 compactedRow[i].setValue(newValue);
                 compactedRow[i + 1].setValue(null);
                 compactedRow = row.filter(tile => tile.getValue() !== null);

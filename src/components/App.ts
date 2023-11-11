@@ -20,7 +20,7 @@ export class App {
     }
 
     private displayElement(elementId: string, display: boolean = true): void {
-        let element = document.getElementById(elementId);
+        const element = document.getElementById(elementId);
         if (element) {
             element.style.display = display ? 'flex' : 'none';
         }
