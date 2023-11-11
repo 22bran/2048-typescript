@@ -1,19 +1,19 @@
 export class Scoreboard {
-    private score: number;
+  private score: number;
 
-    constructor() {
-        this.score = 0;
-    }
+  constructor() {
+    this.score = 0;
+  }
 
-    addScore(points: number): void {
-        this.score += points;
-    }
+  addScore(points: number): void {
+    this.score += points;
+  }
 
-    getScore(): number {
-        return this.score;
-    }
+  getScore(): number {
+    return this.score;
+  }
 
-    resetScore(): void {
-        this.score = 0;
-    }
+  resetScore(): void {
+    this.score = 0;
+  }
 }

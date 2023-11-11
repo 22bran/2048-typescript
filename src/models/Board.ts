@@ -1,33 +1,33 @@
-import { Tile } from './Tile';
+import { Tile } from "./Tile";
 
 export class Board {
-    private tiles: Tile[][];
+  private tiles: Tile[][];
 
-    constructor(private size: number = 4) {
-        this.tiles = this.createEmptyBoard();
-    }
+  constructor(private size: number = 4) {
+    this.tiles = this.createEmptyBoard();
+  }
 
-    setTiles(newTiles: Tile[][]): void {
-        for (let y = 0; y < this.size; y++) {
-            for (let x = 0; x < this.size; x++) {
-                this.tiles[y][x].setValue(newTiles[y][x].getValue());
-            }
-        }
+  setTiles(newTiles: Tile[][]): void {
+    for (let y = 0; y < this.size; y++) {
+      for (let x = 0; x < this.size; x++) {
+        this.tiles[y][x].setValue(newTiles[y][x].getValue());
+      }
     }
+  }
 
-    getTiles(): Tile[][] {
-        return this.tiles;
-    }
+  getTiles(): Tile[][] {
+    return this.tiles;
+  }
 
-    private createEmptyBoard(): Tile[][] {
-        const board: Tile[][] = [];
-        for (let y = 0; y < this.size; y++) {
-            const row: Tile[] = [];
-            for (let x = 0; x < this.size; x++) {
-                row.push(new Tile());
-            }
-            board.push(row);
-        }
-        return board;
+  private createEmptyBoard(): Tile[][] {
+    const board: Tile[][] = [];
+    for (let y = 0; y < this.size; y++) {
+      const row: Tile[] = [];
+      for (let x = 0; x < this.size; x++) {
+        row.push(new Tile());
+      }
+      board.push(row);
     }
+    return board;
+  }
 }

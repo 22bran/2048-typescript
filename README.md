@@ -7,41 +7,45 @@ This is an implementation of the 2048 game built with TypeScript. The primary pu
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ## Installation & Setup
+
 To get this game up and running, you'll need node.js and npm installed.
 
 ### Steps:
 
 1. **Clone the Repository**:
 
-    ```bash
-    git clone https://github.com/22bran/2048-typescript.git && cd 2048-typescript
-    ```
+   ```bash
+   git clone https://github.com/22bran/2048-typescript.git && cd 2048-typescript
+   ```
 
 2. **Install NPM Packages**:
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 3. **Start game**:
 
-    ```bash
-    npm run start
-    ```
+   ```bash
+   npm run start
+   ```
 
 4. **Access the Game**:
 
-    After running the commands above, access the game in your browser at:
+   After running the commands above, access the game in your browser at:
 
-    ```
-    http://localhost:1234
-    ```
+   ```
+   http://localhost:1234
+   ```
 
 ## Usage
+
 Use arrow keys (←, ↑, →, ↓) to move the tiles. When two tiles with the same number touch, they merge into one!
 
 ## License
+
 This project is licensed under the MIT License - see the LICENSE.md file for details.
 
 ## Acknowledgments
-* Inspired by https://play2048.co/
+
+- Inspired by https://play2048.co/
