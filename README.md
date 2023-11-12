@@ -42,10 +42,12 @@ To get this game up and running, you'll need node.js and npm installed.
 
 Use arrow keys (←, ↑, →, ↓) to move the tiles. When two tiles with the same number touch, they merge into one!
 
+![](preview.gif)
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details.
 
 ## Acknowledgments
 
-- Inspired by https://play2048.co/
+Inspired by https://play2048.co/
