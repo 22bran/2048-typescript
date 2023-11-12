@@ -9,10 +9,7 @@ export class Game {
 
   constructor(size: number = 4) {
     this.size = size;
-    this.board = new Board(size);
-    this.score = new Scoreboard();
-    this.addRandomTile();
-    this.addRandomTile();
+    this.reset();
   }
 
   addRandomTile(): void {
@@ -21,7 +18,8 @@ export class Game {
     if (emptyTiles.length > 0) {
       const randomTile =
         emptyTiles[Math.floor(Math.random() * emptyTiles.length)];
-      randomTile.setValue(Math.random() > 0.5 ? 2 : 4);
+      const value = Math.random() > 0.5 ? 2 : 4;
+      randomTile.setValue(value);
     }
   }
 
@@ -84,15 +82,17 @@ export class Game {
 
     for (let i = 0; i < processedTiles.length; i++) {
       const originalRow = processedTiles[i];
-      const newRow = this.compactRow([...originalRow]);
-      const unchanged = this.isRowUnchanged(originalRow, newRow);
-
+      const originalRowCopy = originalRow.map(
+        (value) => new Tile(value.getValue()),
+      );
+      const newRow = this.compactRow(originalRow);
+      const unchanged = this.isRowUnchanged(originalRowCopy, newRow);
       if (!unchanged) {
         moved = true;
         processedTiles[i] = newRow;
       }
     }
-    this.restoreProcessedTiles([...processedTiles], direction);
+    this.restoreProcessedTiles(processedTiles, direction);
     return moved;
   }
 
@@ -132,7 +132,9 @@ export class Game {
     else if (direction === "right")
       restoredTiles = tiles.map((row) => this.reverseRow(row));
     else restoredTiles = tiles;
-    this.board.setTiles(restoredTiles);
+    this.board.setTiles(
+      restoredTiles.map((y) => y.map((x) => new Tile(x.getValue()))),
+    );
   }
 
   private reverseRow(row: Tile[]): Tile[] {

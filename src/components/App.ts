@@ -8,17 +8,16 @@ export class App {
     this.gameBoardElement = gameContainer.querySelector(
       "#gameBoard",
     ) as HTMLElement;
-    this.game = new Game();
     this.initializeGame();
   }
 
   initializeGame(): void {
+    this.game = new Game();
     this.displayElement("game-over", false);
     this.displayElement("win-message", false);
-    this.game.reset();
     this.renderBoard();
     this.renderScore();
-    document.addEventListener("keydown", (event) => this.handleKeyPress(event));
+    document.addEventListener("keyup", (event) => this.handleKeyPress(event));
   }
 
   private displayElement(elementId: string, display: boolean = true): void {
