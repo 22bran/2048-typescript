@@ -2,10 +2,6 @@
 
 This is an implementation of the 2048 game built with TypeScript. The primary purpose of this project is to provide a playground for experimenting with and learning TypeScript in a fun and interactive way.
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
 ## Installation & Setup
 
 To get this game up and running, you'll need node.js and npm installed.
